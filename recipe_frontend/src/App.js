@@ -16,16 +16,37 @@ function App() {
     setTheme(prevTheme => prevTheme === 'light' ? 'dark' : 'light');
   };
 
+  // PUBLIC_INTERFACE
+  const handleNewNote = () => {
+    /**
+     * This is a placeholder action for creating a new note.
+     * Integration point: Open a modal or navigate to a note creation view.
+     */
+    // eslint-disable-next-line no-alert
+    alert('New Note action triggered!');
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <button 
-          className="theme-toggle" 
+      {/* Simple top bar to host key actions */}
+      <div className="topbar" role="region" aria-label="Primary actions">
+        <button
+          className="btn new-note-btn"
+          onClick={handleNewNote}
+          aria-label="Create a new note"
+        >
+          ＋ New Note
+        </button>
+        <button
+          className="btn theme-toggle"
           onClick={toggleTheme}
           aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
         >
           {theme === 'light' ? '🌙 Dark' : '☀️ Light'}
         </button>
+      </div>
+
+      <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
